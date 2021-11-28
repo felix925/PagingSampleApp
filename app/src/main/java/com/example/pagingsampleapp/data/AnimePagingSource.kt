@@ -12,7 +12,7 @@ class AnimePagingSource(
     private val service: AnimeService,
 ) : PagingSource<Int, Anime>() {
     // APIのpage指定の最小値
-    private val FIRST_INDEX = 1
+    private val FIRST_INDEX = 0
 
     // APIの1チャンクあたりの取得データ数
     private val PAGE_SIZE = 30
@@ -44,17 +44,13 @@ class AnimePagingSource(
                 )
 
                 val repositories = result.body()?.animeList
-                if (!repositories.isNullOrEmpty()) {
-                    val nextKey = if (repositories.isNullOrEmpty()) null else position + 1
+                val nextKey = if (repositories.isNullOrEmpty()) null else position + 1
 
-                    return@withContext LoadResult.Page(
-                        data = repositories,
-                        prevKey = if (position >= FIRST_INDEX) position - 1 else FIRST_INDEX,
-                        nextKey = nextKey
-                    )
-                } else {
-                    LoadResult.Error(Resources.NotFoundException())
-                }
+                return@withContext LoadResult.Page(
+                    data = repositories ?: listOf(),
+                    prevKey = if (position >= FIRST_INDEX) position - 1 else FIRST_INDEX,
+                    nextKey = nextKey
+                )
             }
         } catch (e: Exception) {
             return LoadResult.Error(e)
