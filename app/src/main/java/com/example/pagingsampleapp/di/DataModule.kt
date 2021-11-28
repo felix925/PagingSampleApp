@@ -1,6 +1,6 @@
 package com.example.pagingsampleapp.di
 
-import com.example.pagingsampleapp.data.ReposService
+import com.example.pagingsampleapp.data.AnimeService
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -37,6 +37,6 @@ object DataModule {
 
     @Provides
     @Singleton
-    fun provideReposService(retrofit: Retrofit): ReposService =
-        retrofit.create(ReposService::class.java)
+    fun provideReposService(retrofit: Retrofit): AnimeService =
+        retrofit.create(AnimeService::class.java)
 }
