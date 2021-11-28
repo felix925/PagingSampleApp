@@ -25,12 +25,12 @@ class PagingSourceFragment: Fragment(R.layout.fragment_paging_source) {
         val adapter = AnimeAdapter()
 
         lifecycleScope.launch {
-            viewModel.getReposAsFlow().collectLatest {
+            viewModel.getAnimesAsFlow().collectLatest {
                 adapter.submitData(it)
             }
         }
 
-        viewModel.getReposAsLiveData().observe(viewLifecycleOwner) {
+        viewModel.getAnimesAsLiveData().observe(viewLifecycleOwner) {
             lifecycleScope.launch {
 //                adapter.submitData(it)
             }

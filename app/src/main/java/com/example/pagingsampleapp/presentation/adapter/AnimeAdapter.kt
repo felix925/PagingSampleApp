@@ -38,6 +38,5 @@ class AnimeAdapter : PagingDataAdapter<Anime, AnimeViewHolder>(
             )
         )
 
-    class AnimeViewHolder(val binding: ViewAnimeTitleBinding) :
-        RecyclerView.ViewHolder(binding.root)
+    class AnimeViewHolder(val binding: ViewAnimeTitleBinding) : RecyclerView.ViewHolder(binding.root)
 }

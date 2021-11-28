@@ -15,10 +15,10 @@ class PagingSourceViewModel @Inject constructor(
     private val animeRepository: AnimeRepository
 ): ViewModel() {
     // Flowの場合
-    fun getReposAsFlow(): Flow<PagingData<Anime>> =
+    fun getAnimesAsFlow(): Flow<PagingData<Anime>> =
         animeRepository.getAnimes().flow
 
     // LiveDataの場合
-    fun getReposAsLiveData(): LiveData<PagingData<Anime>> =
+    fun getAnimesAsLiveData(): LiveData<PagingData<Anime>> =
         animeRepository.getAnimes().liveData
 }
