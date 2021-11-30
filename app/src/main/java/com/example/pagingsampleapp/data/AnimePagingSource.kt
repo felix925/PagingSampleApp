@@ -31,16 +31,9 @@ class AnimePagingSource(
         return try {
             withContext(Dispatchers.IO) {
                 val result = service.getAnimes(
-                    token = "",
-                    fields = null,
-                    filterIds = null,
-                    filterSeason = null,
-                    filterTitle = null,
+                    token = "fm8bAECyhbVH4tMYngIZeaGCGyQuhMgOPzKprYQ-DE4",
                     page = position,
                     perPage = PAGE_SIZE,
-                    sort_id = null,
-                    sortSeason = null,
-                    sortWatcher = null
                 )
 
                 val repositories = result.body()?.animeList

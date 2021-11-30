@@ -6,7 +6,6 @@ import com.example.pagingsampleapp.data.vo.Anime
 import javax.inject.Inject
 
 class AnimeRepository @Inject constructor(
-    private val api: AnimeApi,
     private val service: AnimeService,
 ) {
     // DBをつかわないバージョン
