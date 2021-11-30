@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.ExperimentalPagingApi
 import com.example.pagingsampleapp.R
 import com.example.pagingsampleapp.databinding.FragmentPagingSourceBinding
 import com.example.pagingsampleapp.presentation.adapter.AnimeAdapter
@@ -12,6 +13,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
+@ExperimentalPagingApi
 @AndroidEntryPoint
 class PagingSourceFragment: Fragment(R.layout.fragment_paging_source) {
 
