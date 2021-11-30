@@ -17,11 +17,7 @@ class AnimeRepository @Inject constructor(
                 prefetchDistance = 80,
                 enablePlaceholders = false,
             ),
-            pagingSourceFactory = {
-                AnimePagingSource(
-                    service = service
-                )
-            },
+            pagingSourceFactory = {},
         )
 
 }
