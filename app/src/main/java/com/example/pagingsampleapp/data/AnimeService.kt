@@ -10,15 +10,8 @@ interface AnimeService {
     @GET("/v1/works")
     suspend fun getAnimes(
         @Query("access_token") token: String,
-        @Query("fields") fields: List<String>?,
-        @Query("filter_ids") filterIds: List<Int>?,
-        @Query("filter_season") filterSeason: String?,
-        @Query("filter_title") filterTitle: String?,
         @Query("page") page: Int?,
-        @Query("per_page") perPage: Int?,
-        @Query("sort_id") sort_id: String?,
-        @Query("sort_season") sortSeason: String?,
-        @Query("sort_watchers_count") sortWatcher: String?
+        @Query("per_page") pageSize: Int?,
     ): Response<AnimeSearchResult>
 }
 
@@ -28,27 +21,13 @@ class AnimeApi @Inject constructor(
 
     override suspend fun getAnimes(
         token: String,
-        fields: List<String>?,
-        filterIds: List<Int>?,
-        filterSeason: String?,
-        filterTitle: String?,
         page: Int?,
-        perPage: Int?,
-        sort_id: String?,
-        sortSeason: String?,
-        sortWatcher: String?
+        pageSize: Int?
     ): Response<AnimeSearchResult> =
         service.getAnimes(
-            token,
-            fields,
-            filterIds,
-            filterSeason,
-            filterTitle,
-            page,
-            perPage,
-            sort_id,
-            sortSeason,
-            sortWatcher,
+            token = token,
+            page = page,
+            pageSize = pageSize,
         )
 
 }
