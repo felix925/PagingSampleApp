@@ -14,7 +14,7 @@ import com.example.pagingsampleapp.presentation.adapter.AnimeAdapter.AnimeViewHo
 class AnimeAdapter : PagingDataAdapter<Anime, AnimeViewHolder>(
     object : DiffUtil.ItemCallback<Anime>() {
         override fun areItemsTheSame(oldItem: Anime, newItem: Anime): Boolean {
-            return oldItem.id == oldItem.id
+            return oldItem.sortId == oldItem.sortId
         }
 
         override fun areContentsTheSame(oldItem: Anime, newItem: Anime): Boolean {
