@@ -1,5 +1,7 @@
 package com.example.pagingsampleapp.data.vo
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
@@ -11,8 +13,12 @@ data class AnimeSearchResult (
     val prev_page: Int?
 )
 
+@Entity(tableName = "anime")
 data class Anime(
+    @PrimaryKey(autoGenerate = true)
+    val sortId: Int = 0,
     val id: Int,
+    val sessionId: String = "",
     val isLiked: Boolean = false,
     val episodes_count: Int,
     val images: Images,
