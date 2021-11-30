@@ -12,7 +12,7 @@ class AnimePagingSource(
     private val service: AnimeService,
 ) : PagingSource<Int, Anime>() {
     // APIのpage指定の最小値
-    private val FIRST_INDEX = 0
+    private val FIRST_INDEX = 1
 
     // APIの1チャンクあたりの取得データ数
     private val PAGE_SIZE = 30
