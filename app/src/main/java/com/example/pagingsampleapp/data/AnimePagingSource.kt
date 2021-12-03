@@ -31,7 +31,7 @@ class AnimePagingSource(
         return try {
             withContext(Dispatchers.IO) {
                 val result = service.getAnimes(
-                    token = "fm8bAECyhbVH4tMYngIZeaGCGyQuhMgOPzKprYQ-DE4",
+                    token = "取得したトークン",
                     page = position,
                     perPage = PAGE_SIZE,
                 )
