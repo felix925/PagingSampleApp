@@ -6,9 +6,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.ExperimentalPagingApi
+import androidx.recyclerview.widget.ConcatAdapter
 import com.example.pagingsampleapp.R
 import com.example.pagingsampleapp.databinding.FragmentPagingSourceBinding
 import com.example.pagingsampleapp.presentation.adapter.AnimeAdapter
+import com.example.pagingsampleapp.presentation.adapter.TopEmptyAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -37,6 +39,9 @@ class PagingSourceFragment: Fragment(R.layout.fragment_paging_source) {
 //                adapter.submitData(it)
             }
         }
-        binding.articleRecycler.adapter = adapter
+        binding.animeRecycler.adapter = ConcatAdapter(
+            TopEmptyAdapter(),
+            adapter
+        )
     }
 }

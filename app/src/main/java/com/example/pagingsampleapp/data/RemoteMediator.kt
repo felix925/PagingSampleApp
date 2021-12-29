@@ -22,7 +22,7 @@ class AnimeMediator (
     private val animeDao: AnimeDao,
     private val pageKeyDao: PageKeyDao,
 ): RemoteMediator<Int, Anime>() {
-    private val MINIMUM_PAGE_SIZE = 1
+    private val MINIMUM_PAGE_SIZE = 0
 
     override suspend fun load(loadType: LoadType, state: PagingState<Int, Anime>): MediatorResult {
 
